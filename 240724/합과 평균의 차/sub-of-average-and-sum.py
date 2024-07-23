@@ -1,0 +1,7 @@
+x=input().split()
+a=int(x[0])
+b=int(x[1])
+c=int(x[2])
+print(a+b+c)
+print((a+b+c)//3)
+print((a+b+c)-((a+b+c)//3))
