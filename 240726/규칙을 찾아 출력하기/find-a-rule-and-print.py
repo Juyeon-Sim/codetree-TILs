@@ -6,7 +6,7 @@ for i in range(n):
             for _ in range(n):
                 print("*", end=' ')
         elif i<=j:
-            print("*", end=' ')
-        else:
             print(end='  ')
+        else:
+            print("*", end=' ')
     print()
