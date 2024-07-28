@@ -15,3 +15,4 @@ for i in range(q):
     else:
         for j in range(arr3[1]-1, arr3[2]):
             print(arr2[j], end=' ')
+        print()
