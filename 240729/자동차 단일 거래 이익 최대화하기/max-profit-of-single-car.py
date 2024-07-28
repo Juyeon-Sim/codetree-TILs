@@ -1,16 +1,22 @@
-n=int(input())
-arr=list(map(int, input().split()))
-cnt=0
-m=-1
+n = int(input())
+arr = list(map(int, input().split()))
 
+# 배열이 내림차순으로 정렬된 경우 확인
+is_descending = True
 for i in range(n-1):
-    if arr[i]>arr[i+1]:
-        cnt+=1
-if cnt==n-1:
+    if arr[i] <= arr[i+1]:
+        is_descending = False
+        break
+
+if is_descending:
     print(0)
 else:
-    for i in range(0, n-1):
-        for j in range(i, n):
-            if arr[j]>arr[i] and (arr[j]-arr[i])>m:
-                m=arr[j]-arr[i]
-    print(m)
+    max_diff = -1
+    # 최대 차이 찾기
+    for i in range(n-1):
+        for j in range(i+1, n):
+            if arr[j] > arr[i]:
+                diff = arr[j] - arr[i]
+                if diff > max_diff:
+                    max_diff = diff
+    print(max_diff)
