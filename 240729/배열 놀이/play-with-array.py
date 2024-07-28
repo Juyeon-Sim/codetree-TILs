@@ -9,7 +9,9 @@ for i in range(q):
         if arr3[1] not in arr2:
             print(0)
         else:
-            print(arr2.index(arr3[1])+1)
+            arr4=[]
+            arr4.append(arr2.index(arr3[1])+1)
+            print(arr4[0])
     else:
         for j in range(arr3[1]-1, arr3[2]):
             print(arr2[j], end=' ')
