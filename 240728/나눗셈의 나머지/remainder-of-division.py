@@ -1,5 +1,5 @@
 arr=list(map(int, input().split()))
-arr2=[0]*10
+arr2=[0]*b
 a,b=arr[0],arr[1]
 
 while a>=1:
