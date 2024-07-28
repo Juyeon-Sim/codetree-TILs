@@ -1,22 +1,14 @@
 n = int(input())
-arr = list(map(int, input().split()))
+price = list(map(int, input().split()))
 
-# 배열이 내림차순으로 정렬된 경우 확인
-is_descending = True
-for i in range(n-1):
-    if arr[i] <= arr[i+1]:
-        is_descending = False
-        break
+# 배열을 앞에서부터 순회하며 사는 시점의 후보를 선택합니다
+max_profit = 0
+for i in range(n):
+    # 사는 시점의 다음 해부터 순회하며 파는 시점의 후보를 선택합니다
+    for j in range(i + 1, n):
+        profit = price[j] - price[i]
 
-if is_descending:
-    print(0)
-else:
-    max_diff = -1
-    # 최대 차이 찾기
-    for i in range(n-1):
-        for j in range(i+1, n):
-            if arr[j] > arr[i]:
-                diff = arr[j] - arr[i]
-                if diff > max_diff:
-                    max_diff = diff
-    print(max_diff)
+        if profit > max_profit:
+            max_profit = profit
+    
+print(max_profit)
