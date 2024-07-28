@@ -9,5 +9,5 @@ for i in range(n):
             arr2.append(i)
             a+=1
 
-for i in range(a, -1, -1):
-    print(arr2[i], end=' ')
+for i in range(a-1, -1, -1):
+    print(arr2[j], end=' ')
