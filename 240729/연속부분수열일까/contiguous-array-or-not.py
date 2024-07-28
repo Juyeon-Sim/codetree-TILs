@@ -7,7 +7,7 @@ a=arr_B[0]
 b=arr_A.index(a)
 arr=[]
 
-for i in range(b, b+n2+1):
+for i in range(b, b+n2):
     arr.append(arr_A[i])
 
 if arr==arr_B:
