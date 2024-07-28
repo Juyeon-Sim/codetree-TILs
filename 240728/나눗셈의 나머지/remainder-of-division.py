@@ -1,6 +1,6 @@
 arr=list(map(int, input().split()))
-arr2=[0]*b
 a,b=arr[0],arr[1]
+arr2=[0]*b
 
 while a>=1:
     x=a//b
