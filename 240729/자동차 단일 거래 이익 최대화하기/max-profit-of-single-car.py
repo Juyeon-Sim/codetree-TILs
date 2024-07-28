@@ -11,6 +11,6 @@ if cnt==n-1:
 else:
     for i in range(0, n-1):
         for j in range(i, n):
-            if (arr[i]-arr[j])>m:
-                m=arr[i]-arr[j]
+            if arr[j]>arr[i] and (arr[j]-arr[i])>m:
+                m=arr[j]-arr[i]
     print(m)
