@@ -1,25 +1,39 @@
-A = input()
-B = input()
+str_a = input()
+str_b = input()
 
-# 문자열 B의 길이
-lenB = len(B)
+len_a = len(str_a)
+len_b = len(str_b)
 
-# 문자열 A를 리스트로 변환하여 처리
-listA = list(A)
+while True:
+    # a문자열에서 b문자열이 처음 등장하는 위치를 찾습니다.
+    idx = -1
+    
+    # Tip1: 우리는 i, i+1, ..., i+len_b-1을 비교할 것입니다.
+    # 이 때 마지막 위치는 i+len_b-1 < len_a를 만족해야
+    # 하므로 i < len_a - len_b + 1을 구할 수 있습니다.
 
-# 결과를 저장할 리스트
-result = []
+    candidates = len_a - len_b + 1
+    for i in range(candidates):
+        # i부터 b길이만큼 비교해서 b와 같은지 체크합니다.
+        is_same = True
 
-i = 0
-while i < len(listA):
-    # 현재 인덱스에서 B가 일치하는지 검사
-    if listA[i:i + lenB] == list(B):
-        # B와 일치하면 B의 길이만큼 건너뜁니다.
-        i += lenB
-    else:
-        # 일치하지 않으면 결과에 현재 문자를 추가합니다.
-        result.append(listA[i])
-        i += 1
+        for j in range(len_b):
+            if str_a[i + j] != str_b[j]:
+                is_same = False
+                break
+        
+        if is_same:
+            # 문자열을 찾았으므로 i 반환
+            idx = i
+            break
 
-# 리스트를 문자열로 변환하여 출력합니다.
-print(''.join(result))
+    # 찾지 못한 경우
+    if idx == -1:
+        break
+    
+    # a문자열에서 idx위치에서 b문자열의 길이만큼의 문자를 지웁니다.
+    str_a = str_a[:idx] + str_a[idx + len_b:]
+
+    len_a = len(str_a)
+
+print(str_a)
