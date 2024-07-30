@@ -1,36 +1,27 @@
-A=input()
-arr=[]
-arr1=[]
-length=len(A)
+A = input()
+arr = []
+length = len(A)
 
-for i in range(length):
-    if i==0:
-        arr.append(A[i])
-        cnt=1
-    elif i==length-1:
-        if A[i]==A[i-1]:
-            arr.append(A[i])
-            cnt+=1
-            arr.append(cnt)
+if length == 0:
+    print(0)
+else:
+    current_char = A[0]
+    cnt = 1
+    
+    for i in range(1, length):
+        if A[i] == current_char:
+            cnt += 1
         else:
-            arr.append(cnt)
-            arr.append(A[i])
-            cnt=1
-            arr.append(cnt)
-    elif A[i]==A[i-1]:
-        arr.append(A[i])
-        cnt+=1
-    else:
-        arr.append(cnt)
-        arr.append(A[i])
-        cnt=1
-
-for i in range(len(arr)):
-    if arr[i]==arr[i-1]:
-        pass
-    else:
-        arr1.append(arr[i])
-
-print(len(arr1))
-for i in arr1:
-    print(i, end='')
+            arr.append(current_char)
+            arr.append(str(cnt))
+            current_char = A[i]
+            cnt = 1
+    
+    # 마지막 문자 처리
+    arr.append(current_char)
+    arr.append(str(cnt))
+    
+    # 결과 출력
+    print(len(arr))
+    for i in arr:
+        print(i, end='')
