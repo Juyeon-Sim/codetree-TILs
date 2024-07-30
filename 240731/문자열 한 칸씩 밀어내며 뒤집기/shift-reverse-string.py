@@ -1,6 +1,8 @@
 arr = input().split()
 s = arr[0]
 q = int(arr[1])
+
+# 문자열을 리스트로 변환
 ss = list(s)
 
 for _ in range(q):
@@ -14,6 +16,6 @@ for _ in range(q):
         # 마지막 문자를 첫 번째로 이동
         ss = [ss[-1]] + ss[:-1]
         print(''.join(ss))
-    else:
-        # 문자열을 반전하여 출력
+    elif a == 3:
+        # 문자열을 반전
         print(''.join(ss[::-1]))
