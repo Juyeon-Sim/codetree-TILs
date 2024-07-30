@@ -21,7 +21,9 @@ else:
     arr.append(current_char)
     arr.append(str(cnt))
     
-    # 결과 출력
+    # 결과 리스트의 길이 출력
     print(len(arr))
-    for i in arr:
-        print(i, end='')
+    
+    # 결과 출력
+    for element in arr:
+        print(element, end='')
