@@ -1,27 +1,21 @@
 arr = input().split()
-s = arr[0]
-q = int(arr[1])
+string, q = arr[0], int(arr[1])
 
-for _ in range(q):
-    arr2 = input().split()
-    command = int(arr2[0])
+for i in range(q):
+    qtype, a, b = input().split()
+    string = list(string)
     
-    if command == 1:
-        a = int(arr2[1])
-        b = int(arr2[2])
-        # 문자열을 리스트로 변환하여 인덱스를 교환합니다.
-        s_list = list(s)
-        s_list[a], s_list[b] = s_list[b], s_list[a]
-        s = ''.join(s_list)
-        print(s)
+    if qtype == "1":
+        string_a = string[int(a)-1]
+        string_b = string[int(b)-1]
+        
+        string[int(a)-1] = string_b
+        string[int(b)-1] = string_a
     
-    elif command == 2:
-        x = arr2[1]
-        y = arr2[2]
-        # 문자열을 리스트로 변환하여 문자를 대체합니다.
-        s_list = list(s)
-        for i in range(len(s_list)):
-            if s_list[i] == x:
-                s_list[i] = y
-        s = ''.join(s_list)
-        print(s)
+    elif qtype == "2":
+        for i in range(len(string)):
+            if string[i] == a:
+                string[i] = b
+            
+    string = "".join(string)
+    print(string)
