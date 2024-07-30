@@ -5,11 +5,18 @@ B = input()
 if len(A) != len(B):
     print(-1)
 else:
-    # A+A에 B가 포함되는지 확인
-    concatenated = A + A
-    if B in concatenated:
-        # B가 포함되는 위치를 찾아 회전 횟수 계산
-        cnt = concatenated.index(B)
+    cnt = 0
+    found = False
+    original_A = A
+    
+    for _ in range(len(A)):
+        if A == B:
+            found = True
+            break
+        A = A[-1] + A[:-1]
+        cnt += 1
+    
+    if found:
         print(cnt)
     else:
         print(-1)
